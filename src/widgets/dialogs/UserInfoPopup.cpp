@@ -662,6 +662,21 @@ void UserInfoPopup::updateUserData()
             this->ui_.nameLabel->setProperty("copy-text", user.displayName);
         }
 
+        // copyable button for login name of users with a localized username
+        if (user.displayName.toLower() != user.login)
+        {
+            this->ui_.localizedNameLabel->setText(user.displayName);
+            this->ui_.localizedNameLabel->setProperty("copy-text",
+                                                      user.displayName);
+            this->ui_.localizedNameLabel->setVisible(true);
+            this->ui_.localizedNameCopyButton->setVisible(true);
+        }
+        else
+        {
+            this->ui_.nameLabel->setText(user.displayName);
+            this->ui_.nameLabel->setProperty("copy-text", user.displayName);
+        }
+
         this->setWindowTitle(
             TEXT_TITLE.arg(user.displayName, this->channel_->getName()));
         this->ui_.viewCountLabel->setText(

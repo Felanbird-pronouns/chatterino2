@@ -77,7 +77,11 @@ MessagePtr IrcMessageBuilder::build()
 
 void IrcMessageBuilder::addWords(const QStringList &words)
 {
+<<<<<<< HEAD
     MessageColor defaultColorType = MessageColor::Text;
+=======
+    MessageColor defaultColorType = this->textColor_;
+>>>>>>> chatterino2/master
     auto defaultColor = defaultColorType.getColor(*getApp()->themes);
     QColor textColor = defaultColor;
     int fg = -1;
